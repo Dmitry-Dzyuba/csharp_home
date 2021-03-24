@@ -11,10 +11,24 @@ namespace CSharp
         static void Main()
         {
             Console.OutputEncoding = Encoding.UTF8;
+<<<<<<< HEAD
             DisplayMessage();
 
 
             Console.ReadLine();
+=======
+            LocalVarDeclarations();
+            Console.ReadLine();
+        }
+        static void LocalVarDeclarations()
+        {
+            Console.WriteLine("=> Data Declarations:");
+            int myInt = default;
+            string myString = "This is my character data";
+            bool b1 = true, b2 = false, b3 = b1;
+            System.Boolean b4 = false;
+            Console.WriteLine($"Your data: {myInt}, {myString}, {b1}, {b2}, {b3}, {b4}");
+>>>>>>> d958e18fe6d89f905e80cb9eae54037d40361b74
 
         }
         static void DisplayMessage()
