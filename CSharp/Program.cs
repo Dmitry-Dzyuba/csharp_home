@@ -8,10 +8,24 @@ namespace CSharp
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            Console.WriteLine("I live C#");
+            Console.OutputEncoding = Encoding.UTF8;
+            FormatNumericalData();
             Console.ReadLine();
+        }
+        static void FormatNumericalData()
+        {
+            Console.WriteLine($"The value 9999 in various formats:");
+            Console.WriteLine($"c format: {9999:c}");
+            Console.WriteLine($"d6 format: {9999:d6}");
+            Console.WriteLine($"e format {9999:e}");
+            Console.WriteLine($"E format {9999:E}");
+            Console.WriteLine($"f3 format {9999:f3}");
+            Console.WriteLine($"n format {9999:n}");
+            Console.WriteLine($"g format {9999:g}");
+            Console.WriteLine($"X format {9999:X}");
+            Console.WriteLine($"x format {9999:x}");
         }
     }
 }
