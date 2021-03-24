@@ -11,8 +11,10 @@ namespace CSharp
         static void Main()
         {
             Console.OutputEncoding = Encoding.UTF8;
+            Console.WriteLine("This is the first programm");
             FormatNumericalData();
             Console.ReadLine();
+
         }
         static void FormatNumericalData()
         {
