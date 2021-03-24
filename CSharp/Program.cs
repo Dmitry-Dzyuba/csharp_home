@@ -11,10 +11,16 @@ namespace CSharp
         static void Main()
         {
             Console.OutputEncoding = Encoding.UTF8;
-            Console.WriteLine("This is the first programm");
-            FormatNumericalData();
+            DisplayMessage();
+
+
             Console.ReadLine();
 
+        }
+        static void DisplayMessage()
+        {
+            string userMessage = string.Format($"100000 in hex is {100_000:X}");
+            System.Windows.MessageBox.Show(userMessage);
         }
         static void FormatNumericalData()
         {
