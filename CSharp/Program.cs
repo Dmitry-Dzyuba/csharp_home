@@ -11,7 +11,7 @@ namespace CSharp
         static void Main()
         {
             Console.OutputEncoding = Encoding.UTF8;
-            DisplayMessage();
+           
 
             Console.ReadLine();
         }
