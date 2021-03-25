@@ -11,9 +11,16 @@ namespace CSharp
         static void Main()
         {
             Console.OutputEncoding = Encoding.UTF8;
-            string s;
-
             Console.ReadLine();
+        }
+        static void NewingDataTypes()
+        {
+            Console.WriteLine("=> Using \"new\" to create variables:");
+            bool b = new bool();
+            int i = new int();
+            double d = new double();
+            DateTime dt = new DateTime();
+            Console.WriteLine($"b = {b}, i = {i}, d = {d}, dt = {dt}");
         }
         static void DefaultDeclarations()
         {
