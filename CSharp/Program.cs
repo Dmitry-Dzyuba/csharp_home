@@ -11,6 +11,7 @@ namespace CSharp
         static void Main()
         {
             Console.OutputEncoding = Encoding.UTF8;
+            NewingDataTypes();
             Console.ReadLine();
         }
         static void NewingDataTypes()
