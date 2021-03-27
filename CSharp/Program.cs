@@ -11,8 +11,27 @@ namespace CSharp
         static void Main()
         {
             Console.OutputEncoding = Encoding.UTF8;
-            NewingDataTypes();
+            DataTypeFunctionality();
             Console.ReadLine();
+        }
+        static void DataTypeFunctionality()
+        {
+            Console.WriteLine("→ Data type Functionality:");
+            Console.WriteLine($"Max of int: {int.MaxValue:N}");
+            Console.WriteLine($"Min of int: {int.MinValue:N}");
+            Console.WriteLine($"Max of double: {double.MaxValue}");
+            Console.WriteLine($"Min of double: {double.MinValue}");
+            Console.WriteLine($"double.Epsilon: {double.Epsilon}");
+            Console.WriteLine($"double.PositiveInfinity: {double.PositiveInfinity}");
+            Console.WriteLine($"double.NegativeInfinity: {double.NegativeInfinity}");
+        }
+        static void ObjectFunctionality()
+        {
+            Console.WriteLine($"System.Object Functionality: ");
+            Console.WriteLine($"12.GetHashCode() = {12.GetHashCode()}");
+            Console.WriteLine($"12.Equals(23) = {12.Equals(23)}");
+            Console.WriteLine($"12.ToString() = {12.ToString()}");
+            Console.WriteLine($"12.GetType() = {12.GetType()}");
         }
         static void NewingDataTypes()
         {
