@@ -11,8 +11,55 @@ namespace CSharp
         static void Main()
         {
             Console.OutputEncoding = Encoding.UTF8;
-            DataTypeFunctionality();
+            ParseFromStringsWithTryParse();
             Console.ReadLine();
+        }
+        static void ParseFromStringsWithTryParse()
+        {
+            Console.WriteLine("→ Data type parsing with TryParse:");
+            if (bool.TryParse("True", out bool b))
+            {
+                Console.WriteLine($"Value of b: {b}");
+            }
+            string value = "94.518";
+            if (double.TryParse(value, out double d))
+            {
+                Console.WriteLine($"Value of b: {d}");
+            }
+            else
+            {
+                Console.WriteLine($"Failed to convert the input ({value}) to a double");
+            }
+            
+        }
+        static void ParseFromString()
+        {
+            Console.WriteLine("→ Data type parsing:");
+            bool b = bool.Parse("True");
+            Console.WriteLine($"Value of b: {b}");
+            double d = double.Parse("98,345");
+            Console.WriteLine($"Value of d: {d}");
+            int i = int.Parse("17");
+            Console.WriteLine($"Value of i: {i}");
+            char c = char.Parse("w");
+            Console.WriteLine($"Value of c: {c}");
+        }
+        static void CharFunctionality()
+        {
+            Console.WriteLine("→ CharFunctionality");
+            char myChar = 'a';
+            string myString = "Hello everyone";
+            Console.WriteLine($"char.IsLetter('a') = {char.IsLetter(myChar)}");
+            Console.WriteLine($"char.IsDigit('a') = {char.IsDigit(myChar)}");
+            Console.WriteLine($"char.IsWhiteSpace(\"Hello everyone\", 5) = {char.IsWhiteSpace(myString, 5)}");
+            Console.WriteLine($"char.IsWhiteSpace(\"Hello everyone\", 7) = {char.IsWhiteSpace(myString, 7)}");
+            Console.WriteLine($"char.IsPunctuation('!') = {char.IsPunctuation('!')}");
+        }
+        static void BooleanFunctionality()
+        {
+            Console.WriteLine("→ BooleanFunctionality");
+            Console.WriteLine($"bool.TrueString = {bool.TrueString}");
+            Console.WriteLine($"bool.FalseString = {bool.FalseString}");
         }
         static void DataTypeFunctionality()
         {
