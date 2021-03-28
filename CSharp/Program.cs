@@ -11,8 +11,59 @@ namespace CSharp
         static void Main()
         {
             Console.OutputEncoding = Encoding.UTF8;
-            ParseFromStringsWithTryParse();
+            StringConcatenation();
             Console.ReadLine();
+        }
+        static void StringConcatenation()
+        {
+            Console.WriteLine("→ String concatenation:");
+            string s1 = "Programming the ";
+            string s2 = "PsychoDrill (PTP)";
+            string s3 = s1 + s2;
+            string s4 = string.Concat(s1, s2, s3);
+            Console.WriteLine(s3);
+            Console.WriteLine(s4);
+
+        }
+        static void BasicStringFunctionality()
+        {
+            Console.WriteLine("=> Basic String Functionality: 121");
+            string firstName = "Freddy";
+            Console.WriteLine($"Value of firstName: {firstName}");
+            Console.WriteLine($"firstName has {firstName.Length} characters");
+            Console.WriteLine($"firstName in UpperCase: {firstName.ToUpper()}");
+            Console.WriteLine($"firstName in LowerCase: {firstName.ToLower()}");
+            Console.WriteLine($"firstName contains the letter y: " +
+                $"{firstName.Contains("y")}");
+            Console.WriteLine($"firstName after replace: {firstName.Replace("dy", "")}");
+        }
+        static void DigitSeparators()
+        {
+            Console.WriteLine("=> Use digit separators: (120)");
+            Console.WriteLine("Integer:");
+            Console.WriteLine(123_456);
+            Console.WriteLine("Long:");
+            Console.WriteLine(123_456_789L);
+            float f = 123_456.7254544f;
+            Console.WriteLine($"Float: {f}");
+            Console.WriteLine(123_456.7254F);
+            Console.WriteLine("Double:");
+            Console.WriteLine(123_464.44561);
+            Console.WriteLine("Decimal:");
+            Console.WriteLine(123_456.12M);
+        }
+        static void UseDatesAndTimes()
+        {
+            Console.WriteLine("→ Dates and Times:");
+            DateTime dateTime = new DateTime(2021,03,28);         
+            Console.WriteLine($"The day of {dateTime.ToShortDateString()} is {dateTime.DayOfWeek}");
+            Console.WriteLine($"Daylight savings: {dateTime.IsDaylightSavingTime()}");
+            TimeSpan ts = new TimeSpan(4, 30, 15);
+            Console.WriteLine(ts);
+            Console.WriteLine(ts.Subtract(new TimeSpan(1, 49, 35)));
+            DateTime dateTime1 = new DateTime(2004, 05, 02);
+
+
         }
         static void ParseFromStringsWithTryParse()
         {
