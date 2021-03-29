@@ -11,9 +11,48 @@ namespace CSharp
         static void Main()
         {
           Console.OutputEncoding = Encoding.UTF8;
-          
+            CodeBlogCycles();
 
           Console.ReadLine();
+        }
+        static void CodeBlogCycles()
+        {
+            List<int> list = new List<int>();
+            int cnt = 15;
+            while (list.Count < cnt)
+            {
+                if (int.TryParse(Console.ReadLine(), out int value))
+                {
+                    list.Add(value);
+                }
+                else
+                {
+                    Console.WriteLine($"Строка не является числом. Введите ещё раз");
+                }
+            }
+            int sum = 0;
+            for (int j = 0; j < list.Count; j++)
+            {
+                sum += list[j];
+            }
+            Console.WriteLine($"Sum of a list is {sum}");
+            int substract = list[list.Count-1];
+            int i = list.Count - 1;
+            while (i > 0)
+            {
+                substract -= list[i--];
+            }
+            Console.WriteLine($"Substraction is {substract}");
+            long mul = 1;
+            i = 0;
+            do
+            {
+                mul *= list[i];
+            } while (i++ < list.Count-1);
+            foreach (var item in list)
+            {
+                Console.WriteLine(item);
+            }
         }
         static void CodeBlogIf()
         {
