@@ -11,9 +11,30 @@ namespace CSharp
         static void Main()
         {
           Console.OutputEncoding = Encoding.UTF8;
-            CodeBlogCycles();
-
+            VerbatimStringDefinition();
           Console.ReadLine();
+        }
+        static void VerbatimStringDefinition()
+        {
+            Console.WriteLine(@"C:\Myapp\bin\Debug");
+            string myLongString = 
+                @"This is a very
+            very
+              very
+                long string";
+            Console.WriteLine(myLongString);
+            Console.WriteLine(@"Cerebus said ""Darrr! Pret-ty sun-sets """);
+        }
+        static void EscapeChars()
+        {
+            Console.WriteLine("→ Escape sequencies");
+            string strWithTabs = "Model\tColor\tSpeed\tPet Name\a ";
+            Console.WriteLine(strWithTabs);
+            Console.WriteLine("Everyone loves \"Hello world\"\a");
+            Console.WriteLine("C:\\myApp\\bin\\debug");
+            Console.WriteLine("s\r");
+            Console.WriteLine("All finished.\n\n\n\n");
+
         }
         static void CodeBlogCycles()
         {
