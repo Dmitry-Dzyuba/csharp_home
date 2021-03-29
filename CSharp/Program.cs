@@ -10,13 +10,46 @@ namespace CSharp
     {
         static void Main()
         {
-            Console.OutputEncoding = Encoding.UTF8;
-            StringConcatenation();
-            Console.ReadLine();
+          Console.OutputEncoding = Encoding.UTF8;
+          
+
+          Console.ReadLine();
+        }
+        static void CodeBlogIf()
+        {
+           
+                int.TryParse(Console.ReadLine(), out int a);
+                int.TryParse(Console.ReadLine(), out int b);
+                int.TryParse(Console.ReadLine(), out int c);
+                if (a > b && a > c)
+                {
+                    Console.WriteLine($"{a}>{b} and {a}>{c}");
+                }
+                else if (b > a && b > c)
+                {
+                    Console.WriteLine($"{b}>{a} and {b}>{c}");
+                }
+                else if (c > a && c > b)
+                {
+                    Console.WriteLine($"{c}>{a} and {c}>{b}");
+                }
+                int.TryParse(Console.ReadLine(), out int even);
+                if (even % 2 == 0)
+                {
+                    Console.WriteLine($"{even} is even");
+                }
+                else
+                {
+                    Console.WriteLine($"{even} is odd");
+                }
+                int.TryParse(Console.ReadLine(), out int fast);
+                string result = (fast < 100) ? "да" : "нет";
+                Console.WriteLine(result);
+            
         }
         static void StringConcatenation()
         {
-            Console.WriteLine("→ String concatenation:");
+            Console.WriteLine("→ String concatenation: 122");
             string s1 = "Programming the ";
             string s2 = "PsychoDrill (PTP)";
             string s3 = s1 + s2;
