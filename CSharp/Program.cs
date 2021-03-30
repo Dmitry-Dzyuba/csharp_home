@@ -12,7 +12,34 @@ namespace CSharp
         static void Main()
         {
           Console.OutputEncoding = Encoding.UTF8;
+          StringEqualitySpecifyingCompareRules();
           Console.ReadLine();
+        }
+        static void StringEqualitySpecifyingCompareRules()
+        {
+            string s1 = "Préférer!";
+            string s2 = s1.ToUpper();
+            Console.WriteLine($"s1 = {s1}");
+            Console.WriteLine($"s2 = {s2}");
+            Console.WriteLine();
+            // Проверить результаты изменения стандартных правил сравнения.
+            Console.WriteLine($"Default rules: s1 = {s1}, s2 = {s2}," +
+                $"s1.Equals(s2): {s1.Equals(s2)}");
+            Console.WriteLine($"Ignore case: s1.Equals(s2, StringComparison.OrdinalIgnoreCase): {s1.Equals(s2, StringComparison.OrdinalIgnoreCase)}");
+            Console.WriteLine($"Ignore case, Invariant Culture: s1.Equals(s2, StringComparison.InvariantCultureIgnoreCase): {s1.Equals(s2, StringComparison.InvariantCultureIgnoreCase)}");
+            Console.WriteLine($"Default rules: s1 = {s1}, s2 = {s2}," +
+                $"s1.IndexOf(\"E\"): {s1.IndexOf("É")}");
+            Console.WriteLine($"Ignore case: " +
+                $"s1.IndexOf(\"É\", StringComparison.OrdinalIgnoreCase): {s1.IndexOf("É", StringComparison.OrdinalIgnoreCase)}");
+            Console.WriteLine($"Ignore case, Invariant Culture: " +
+                   $"s1.IndexOf(\"É\", StringComparison.InvariantCultureIgnoreCase): {s1.IndexOf("É", StringComparison.InvariantCultureIgnoreCase)}");
+        }
+        static void BinaryLiterals()
+        {
+            Console.WriteLine("→ BinaryLiterals:");
+            Console.WriteLine($"16: {0b0001_0000}");
+            Console.WriteLine($"32: {0b0010_0000}");
+            Console.WriteLine($"56: {0b0011_1000}");
         }
         static void StringEquality()
         {
