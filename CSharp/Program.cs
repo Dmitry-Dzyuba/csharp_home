@@ -11,9 +11,85 @@ namespace CSharp
     {
         static void Main()
         {
-          Console.OutputEncoding = Encoding.UTF8;
-          StringEqualitySpecifyingCompareRules();
-          Console.ReadLine();
+            Console.OutputEncoding = Encoding.UTF8;
+            DeclarelmplicitVars();
+            Console.ReadLine();
+        }
+        static void DeclarelmplicitVars()
+        {
+            var myInt = 5;
+            var myBool = true;
+            var myString = "Je m'appelle Dmitri";
+            Console.WriteLine($"myInt has type: {myInt} = {myInt.GetType()}");
+            Console.WriteLine($"myBool has type: {myBool} = {myBool.GetType()}");
+            Console.WriteLine($"myString has type: {myString} = {myString.GetType()}");
+        }
+        static void ProcessBytes()
+        {
+            byte b1 = 100;
+            byte b2 = 250;
+           // try
+            {
+                //checked
+                {
+                    byte sum = ((byte)Add(b1, b2));
+                    Console.WriteLine($"sum is {sum}");
+                }
+
+            }
+            //catch (OverflowException ex)
+            {
+
+                //Console.WriteLine(ex.Message);
+            }
+        }
+        static int Add(int x, int y)
+        {
+            return x + y;
+        }
+
+        static void StringInterpolation()
+        {
+            int age = 4;
+            string name = "Soren";
+            /*Использование синтаксиса с фигурными скобками
+             * и использованием метода .Format()
+             */
+            string greeting = string.Format("Hello {0}, you are {1} years old.", name, age);
+            string greeting2 = $"Hello {name}, you are {age} years old.";
+            Console.WriteLine(greeting);
+            Console.WriteLine(greeting2);
+            greeting = string.Format("Hello {0}, you are {1} years old.", name.ToUpper(), age);
+            greeting2 = $"Hello {name.ToUpper()}, you are {age} years old.";
+            Console.WriteLine(greeting);
+            Console.WriteLine(greeting2);
+
+        }
+        static void StringBuilderMethod()
+        {
+            Console.WriteLine("→ Using String Builder. 128");
+            StringBuilder stringBuilder = new StringBuilder("***Fantastic Games***");
+            stringBuilder.Append("\n");
+            stringBuilder.AppendLine("Half Life");
+            stringBuilder.AppendLine("Morrowwind");
+            stringBuilder.AppendLine("Deus Ex" + " 2");
+            stringBuilder.AppendLine("System Shock");
+            Console.WriteLine(stringBuilder);
+            stringBuilder.Replace("2", "Invisible War");
+            Console.WriteLine(stringBuilder);
+            Console.WriteLine($"stringBuilder has {stringBuilder.Length} chars");
+
+
+
+
+        }
+        static void StringsAreImmutable()
+        {
+            string s1 = "This is my string.";
+            Console.WriteLine($"s1 = {s1}");
+            string upperString = s1.ToUpper();
+            Console.WriteLine($"upperString is {upperString}");
+            Console.WriteLine($"s1 = {s1}");
         }
         static void StringEqualitySpecifyingCompareRules()
         {
@@ -48,7 +124,7 @@ namespace CSharp
             string s2 = "Yo";
             Console.WriteLine($"s1 = {s1}");
             Console.WriteLine($"s2 = {s2}");
-            Console.WriteLine($"s1 == s2: {s1==s2}");
+            Console.WriteLine($"s1 == s2: {s1 == s2}");
             Console.WriteLine($"s1 == Hello: {s1 == "Hello"}");
             Console.WriteLine($"s1 == HELLO: {s1 == "Hello".ToUpper()}");
             Console.WriteLine($"s1 == hello: {s1 == "Hello".ToLower()}");
@@ -58,7 +134,7 @@ namespace CSharp
         static void VerbatimStringDefinition()
         {
             Console.WriteLine(@"C:\Myapp\bin\Debug");
-            string myLongString = 
+            string myLongString =
                 @"This is a very
             very
               very
@@ -98,7 +174,7 @@ namespace CSharp
                 sum += list[j];
             }
             Console.WriteLine($"Sum of a list is {sum}");
-            int substract = list[list.Count-1];
+            int substract = list[list.Count - 1];
             int i = list.Count - 1;
             while (i > 0)
             {
@@ -110,7 +186,7 @@ namespace CSharp
             do
             {
                 mul *= list[i];
-            } while (i++ < list.Count-1);
+            } while (i++ < list.Count - 1);
             foreach (var item in list)
             {
                 Console.WriteLine(item);
@@ -118,35 +194,35 @@ namespace CSharp
         }
         static void CodeBlogIf()
         {
-           
-                int.TryParse(Console.ReadLine(), out int a);
-                int.TryParse(Console.ReadLine(), out int b);
-                int.TryParse(Console.ReadLine(), out int c);
-                if (a > b && a > c)
-                {
-                    Console.WriteLine($"{a}>{b} and {a}>{c}");
-                }
-                else if (b > a && b > c)
-                {
-                    Console.WriteLine($"{b}>{a} and {b}>{c}");
-                }
-                else if (c > a && c > b)
-                {
-                    Console.WriteLine($"{c}>{a} and {c}>{b}");
-                }
-                int.TryParse(Console.ReadLine(), out int even);
-                if (even % 2 == 0)
-                {
-                    Console.WriteLine($"{even} is even");
-                }
-                else
-                {
-                    Console.WriteLine($"{even} is odd");
-                }
-                int.TryParse(Console.ReadLine(), out int fast);
-                string result = (fast < 100) ? "да" : "нет";
-                Console.WriteLine(result);
-            
+
+            int.TryParse(Console.ReadLine(), out int a);
+            int.TryParse(Console.ReadLine(), out int b);
+            int.TryParse(Console.ReadLine(), out int c);
+            if (a > b && a > c)
+            {
+                Console.WriteLine($"{a}>{b} and {a}>{c}");
+            }
+            else if (b > a && b > c)
+            {
+                Console.WriteLine($"{b}>{a} and {b}>{c}");
+            }
+            else if (c > a && c > b)
+            {
+                Console.WriteLine($"{c}>{a} and {c}>{b}");
+            }
+            int.TryParse(Console.ReadLine(), out int even);
+            if (even % 2 == 0)
+            {
+                Console.WriteLine($"{even} is even");
+            }
+            else
+            {
+                Console.WriteLine($"{even} is odd");
+            }
+            int.TryParse(Console.ReadLine(), out int fast);
+            string result = (fast < 100) ? "да" : "нет";
+            Console.WriteLine(result);
+
         }
         static void StringConcatenation()
         {
@@ -189,7 +265,7 @@ namespace CSharp
         static void UseDatesAndTimes()
         {
             Console.WriteLine("→ Dates and Times:");
-            DateTime dateTime = new DateTime(2021,03,28);         
+            DateTime dateTime = new DateTime(2021, 03, 28);
             Console.WriteLine($"The day of {dateTime.ToShortDateString()} is {dateTime.DayOfWeek}");
             Console.WriteLine($"Daylight savings: {dateTime.IsDaylightSavingTime()}");
             TimeSpan ts = new TimeSpan(4, 30, 15);
@@ -215,7 +291,7 @@ namespace CSharp
             {
                 Console.WriteLine($"Failed to convert the input ({value}) to a double");
             }
-            
+
         }
         static void ParseFromString()
         {
