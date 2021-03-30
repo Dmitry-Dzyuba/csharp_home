@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace CSharp
 {
     class Program
@@ -11,8 +12,21 @@ namespace CSharp
         static void Main()
         {
           Console.OutputEncoding = Encoding.UTF8;
-            VerbatimStringDefinition();
           Console.ReadLine();
+        }
+        static void StringEquality()
+        {
+            Console.WriteLine("→ String equality. 124");
+            string s1 = "Hello";
+            string s2 = "Yo";
+            Console.WriteLine($"s1 = {s1}");
+            Console.WriteLine($"s2 = {s2}");
+            Console.WriteLine($"s1 == s2: {s1==s2}");
+            Console.WriteLine($"s1 == Hello: {s1 == "Hello"}");
+            Console.WriteLine($"s1 == HELLO: {s1 == "Hello".ToUpper()}");
+            Console.WriteLine($"s1 == hello: {s1 == "Hello".ToLower()}");
+            Console.WriteLine($"s1 with NonRegister {s1.Equals("Hello", StringComparison.CurrentCultureIgnoreCase)}");
+            Console.WriteLine($"\"Yo\".Equals(s2): {"Yo".Equals(s2)}");
         }
         static void VerbatimStringDefinition()
         {
