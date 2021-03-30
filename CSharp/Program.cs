@@ -7,13 +7,60 @@ using System.Threading.Tasks;
 
 namespace CSharp
 {
+    class ThisWillNeverComplile
+    {
+        //private var myInt = 10;
+        // public var MyMethod(var x, var y);
+        
+    }
     class Program
     {
         static void Main()
         {
             Console.OutputEncoding = Encoding.UTF8;
-            DeclarelmplicitVars();
             Console.ReadLine();
+        }
+        static void LinqQueryOverInts()
+        {
+            int[] numbers = { 10, 20, 30, 40, 1, 2, 3, 8 };
+            //LINQ query
+            var subset = from i in numbers where i < 10 select i;
+            Console.Write("Values in subset: ");
+            foreach (var item in subset)
+            {
+                Console.Write($"{item} ");
+            }
+            Console.WriteLine();
+            Console.WriteLine($"subset is a: {subset.GetType().Name}");
+            Console.WriteLine($"subset is defined in: {subset.GetType().Namespace}");
+        }
+        static void ImplicitTypingIsStrongTyping()
+        {
+            var s = "This variable can only hold string data!";
+            s = "It's fine...";
+            string upper = s.ToUpper();
+            Console.WriteLine(s);
+            Console.WriteLine(upper);
+            // Ошибка! Присваивание типов, отличных от string, карается исключением
+            //s = 44;
+        }
+        static int ThisWillNeverBeCompiled()
+        {
+            // Ошибка! Должно быть присвоено значение!
+            //var myData;
+            // Ошибка! Значение должно присваиваться в самом объявлении!
+            // var mylnt;
+            // mylnt = 0;
+            //Ошибка! Нельзя присваивать Null в качестве начального значения
+            //var myObj = null;
+            var neverCom = new ThisWillNeverComplile();
+            neverCom = null;
+            var myInt = 0;
+            var anotherInt = myInt;
+            string myString = "Wake up!";
+            var myData = myString;
+            var retVal = 9;
+            return retVal;
         }
         static void DeclarelmplicitVars()
         {
