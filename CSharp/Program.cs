@@ -18,7 +18,52 @@ namespace CSharp
         static void Main()
         {
             Console.OutputEncoding = Encoding.UTF8;
+          //  WhileLoopExample();
+            DateTime date = new DateTime(2021, 03, 01);
+            DateTime dateTime = date.AddDays(-5).AddMonths(-(12+date.Month-10)).AddYears(-1999);
+            Console.WriteLine(dateTime.Date);
+
             Console.ReadLine();
+        }
+        static void DoWhileLoopExample()
+        {
+            string userIsDone = "";
+            do
+            {
+                Console.WriteLine("In do/while loop");
+                Console.Write("Are you done? [yes] [no]: ");
+                userIsDone = Console.ReadLine();
+            } while (userIsDone.ToLower()!="yes");
+        }
+        static void WhileLoopExample()
+        {
+            string userIsDone = "";
+            while (userIsDone.ToLower()!="yes")
+            {
+                Console.WriteLine("In while loop");
+                Console.Write("Are you done? [yes] [no]: ");
+                userIsDone = Console.ReadLine();
+            }
+        }
+        static void ForEachLoopExample()
+        {
+            string[] carTypes = { "BMW", "Ford", "Mercedez", "Mazda" };
+            foreach (string str in carTypes)
+            {
+                Console.WriteLine(str);
+            }
+            int[] numbers = { 1, 5, 4, 12, 65, 2 };
+            foreach (int item in numbers)
+            {
+                Console.WriteLine(item);
+            }
+        }
+        static void ForLoopExample()
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                Console.WriteLine($"number is {i}");
+            }
         }
         static void LinqQueryOverInts()
         {
