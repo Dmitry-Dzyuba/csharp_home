@@ -18,12 +18,32 @@ namespace CSharp
         static void Main()
         {
             Console.OutputEncoding = Encoding.UTF8;
-          //  WhileLoopExample();
-            DateTime date = new DateTime(2021, 03, 01);
-            DateTime dateTime = date.AddDays(-5).AddMonths(-(12+date.Month-10)).AddYears(-1999);
-            Console.WriteLine(dateTime.Date);
+
+            ExecuteIfElseUsingConditionalOperator();
 
             Console.ReadLine();
+        }
+        static void ExecuteIfElseUsingConditionalOperator()
+        {
+            string stringData = default;
+            Console.WriteLine(stringData?.Length > 0? "String is greater than 0 symbols":"String is empty");
+        }
+        static void IfElseExample()
+        {
+            string stringData = "My Textual data";
+            /*   if (stringData.Length) так нельзя
+            {
+
+            }
+            else
+            {
+
+            }*/
+            //так можно
+            if (stringData.Length > 0)
+            {
+                Console.WriteLine("String is greater than 0 symbols");
+            }
         }
         static void DoWhileLoopExample()
         {
