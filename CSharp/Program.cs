@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 
 namespace CSharp
 {
+   
     class ThisWillNeverComplile
     {
         //private var myInt = 10;
@@ -15,15 +18,146 @@ namespace CSharp
     }
     class Program
     {
+        public static object locker = new object();
         static void Main()
         {
-            Console.OutputEncoding = Encoding.UTF8;
-            ExecutePatternMatchingSwitchWithWhen();
-
-
-
+            Console.OutputEncoding = Encoding.Unicode;
+           
+            
             Console.ReadLine();
         }
+        #region CODE_BLOG_STREAMS_ON_YOUTUBE
+        static void CodeBlogAsync()
+        {
+            DoWorkAsync();
+        }
+        static async Task DoWorkAsync()
+        {
+            await Task.Run(() => DoWork()); // ждать завершения выполнения
+            Console.WriteLine("Do Work Async");
+        }
+        static void SaveFileMethod()
+        {
+            var result = SaveFileAsync(@"D:\text.txt");
+            var input = Console.ReadLine();
+            Console.WriteLine(result.Result);
+
+        }
+        static async Task<bool> SaveFileAsync(string path)
+        {
+            var result = await Task.Run(() => SaveFile(path));
+            return result;
+        }
+        static bool SaveFile(string path)
+        {
+            lock (locker)
+            {
+                var rnd = new Random();
+                var text = "";
+                for (int i = 0; i < 50_000; i++)
+                {
+                    text += rnd.Next();
+                }
+            }
+            using (var sw = new StreamWriter(path, false, Encoding.UTF8))
+            {
+                sw.WriteLine();
+            }
+            return true;
+        }
+        static void CodeBlogThread()
+        {
+            Thread thread = new Thread(new ThreadStart(DoWork));
+            thread?.Start();
+            Thread thread2 = new Thread(new ParameterizedThreadStart(DoWork));
+            thread2?.Start(int.MaxValue);
+            int j = default;
+            for (int i = 0; i < int.MaxValue; i++)
+            {
+                j++;
+                if (j % 10_000 == 0)
+                {
+                    Console.WriteLine("Do work main");
+                }
+            }
+        }
+        static void DoWork(object threadMax)
+        {
+            int j = default;
+            for (int i = 0; i < (int)threadMax; i++)
+            {
+                j++;
+                // if (j%10_000==0)
+                {
+                    Console.WriteLine("Do work parametrized");
+                }
+            }
+        }
+        static void DoWork()
+        {
+            int j = default;
+            for (int i = 0; i < 10; i++)
+            {
+                j++;
+                // if (j % 10_000 == 0)
+                {
+                    Console.WriteLine("Do work ");
+                }
+            }
+        }
+        static void CodeBlogStream()
+        {
+            using (var sw = new StreamWriter("text.txt", false, encoding: Encoding.Unicode))
+            {
+                sw.WriteLine("עִבְרִית");
+                sw.WriteLine("Hello");
+                sw.WriteLine("Привет");
+                sw.WriteLine("Je préfère le chocolat");
+            }
+            using (var sr = new StreamReader("text.txt", encoding: Encoding.Unicode))
+            {
+                Console.WriteLine(sr.ReadToEnd());
+                //to reset a stream
+                sr.DiscardBufferedData();
+                sr.BaseStream.Seek(0, SeekOrigin.Begin);
+            }
+            Console.WriteLine("What do you want to do?");
+            Console.WriteLine("1. Input name for a file\n2. Read information from a file");
+            int val = default;
+            int.TryParse(Console.ReadLine(), out val);
+            switch (val)
+            {
+                case 1:
+                    string name = Console.ReadLine();
+                    using (var sw = new StreamWriter("data.txt", true, Encoding.Unicode))
+                    {
+                        sw.WriteLine(name);
+                        Console.WriteLine($"Name: {name} has been added");
+                    }
+                    break;
+                case 2:
+                    using (var sr = new StreamReader("data.txt", Encoding.Unicode))
+                    {
+                        Console.WriteLine("The base has the next data");
+                        Console.WriteLine(sr.ReadToEnd());
+                    }
+                    break;
+                default:
+                    Console.WriteLine("Something's wrong");
+                    break;
+            }
+
+
+        }
+        #endregion
+
+        static void RectMultiDimensionalArray()
+        {
+
+        }
+        /*
+         * CHAPTER 4. MAIN CONSTRUCTIONS OF PROGRAMMING ON C#. PART II
+         */
         static void ExecutePatternMatchingSwitchWithWhen()
         {
             Console.WriteLine("1 [C#], 2 [VB]");
